@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Synth</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+        #controls {
+            text-align: center;
+        }
+        .horizontal
+        {
+            display:flex;
+        }
+        .horizontal > div 
+        {
+            /* Optional individual div styles */
+            padding: 30px;
+        }
+        button, input[type="range"] {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin: 10px 0;
+        }
+        input[type="range"] {
+            width: 100%;
+            max-width: 300px;
+        }
+        label {
+            display: block;
+            margin: 10px 0;
+        }
+        .frequency-value {
+            display: inline-block;
+            min-width: 50px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <div id="Bounding TopBox" class="horizontal">
+        <div id="Envelope">
+            <label for="AttackSlider">Attack Time</label>
+            <input type="range" id="AttackSlider" min="0.01" max="2" value=".2" step = "0.01">
+            <label for="DecaySlider">Decay Time</label>
+            <input type="range" id="DecaySlider" min="0.01" max="2" value=".2" step = "0.01">
+            <label for="SustainSlider">Sustain</label>
+            <input type="range" id="SustainSlider" min="0.01" max="1" value="1" step = "0.01">
+            <label for="ReleaseSlider">Release Time</label>
+            <input type="range" id="ReleaseSlider" min="0" max="2" value=".2" step = "0.1">
+        </div>
+
+        <div id = LowPass>
+            <label for="LowPassFreq">LowPass Frequency</label>
+            <input type="range" id="LowPassFreq" min="50" max="1000" value="300" step = "1">
+            <label for="LowPassQ">LowPass Q</label>
+            <input type="range" id="LowPassQ" min="1" max="20" value="1" step = "0.5">
+        </div>
+    </div>
+
+    <div id="Input">
+        <label for="VoiceWidth">Voice Width</label>
+        <input type="range" id="VoiceWidth" min="0.01" max="5" value=".2" step = "0.01">
+        <button id="Play A">A - 440</button>
+        <button id="Play D">D - 523.25</button>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
